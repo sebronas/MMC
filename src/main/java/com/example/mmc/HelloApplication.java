@@ -21,5 +21,5 @@ public class HelloApplication extends Application {
         launch();
     }
 
-    //test Elena
+    
 }
