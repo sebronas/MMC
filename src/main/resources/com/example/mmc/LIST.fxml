@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="685.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mmc.Controller.MusicListController">
    <children>
-      <Button layoutX="303.0" layoutY="384.0" mnemonicParsing="false" onAction="#switchToHelloView" text="GO BACK" />
+      <Button layoutX="303.0" layoutY="384.0" mnemonicParsing="false" text="GO BACK" />
       <Button layoutX="373.0" layoutY="384.0" mnemonicParsing="false" text="Print/save" />
        <Text layoutX="81.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Students" wrappingWidth="62.666015625" />
        <Text layoutX="214.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teachers" />
