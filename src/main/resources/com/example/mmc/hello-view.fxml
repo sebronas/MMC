@@ -12,7 +12,7 @@
     </padding>
 
     <Label fx:id="welcomeText" />
-   <Button fx:id="myButton" onAction="#switchToLIST" prefHeight="81.0" prefWidth="493.0" text="MUSIC MASTER'S COMPANION">
+   <Button fx:id="myButton" prefHeight="81.0" prefWidth="493.0" text="MUSIC MASTER'S COMPANION">
       <font>
          <Font size="19.0" />
       </font>

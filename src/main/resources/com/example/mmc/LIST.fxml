@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="423.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mmc.HelloController">
    <children>
-      <Button layoutX="303.0" layoutY="384.0" mnemonicParsing="false" onAction="#switchToHelloView" text="GO BACK" />
+      <Button layoutX="303.0" layoutY="384.0" mnemonicParsing="false" text="GO BACK" />
       <Button layoutX="373.0" layoutY="384.0" mnemonicParsing="false" text="Print/save" />
       <Text layoutX="500.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grades" />
       <Text layoutX="345.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instruments" />
