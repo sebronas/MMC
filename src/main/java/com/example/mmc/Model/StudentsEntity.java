@@ -42,7 +42,7 @@ public class StudentsEntity {
         this.student = student;
     }
 
-    public Object getGrade() {
+    public String getGrade() {
         return grade;
     }
 

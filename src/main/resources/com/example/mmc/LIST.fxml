@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="671.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mmc.Controller.MusicListController">
+<AnchorPane prefHeight="671.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mmc.Controller.MusicListController">
    <children>
       <Button layoutX="303.0" layoutY="384.0" mnemonicParsing="false" onAction="#switchToHelloView" text="GO BACK" />
       <Button layoutX="373.0" layoutY="384.0" mnemonicParsing="false" text="Print/save" />
-      <Text layoutX="500.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grades" />
-      <Text layoutX="345.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instruments" />
-      <Text layoutX="214.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teachers" />
-      <Text layoutX="81.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Students" wrappingWidth="62.666015625" />
-      <ListView fx:id="listStudent" layoutX="32.0" layoutY="77.0" prefHeight="285.0" prefWidth="132.0" />
-      <ListView layoutX="171.0" layoutY="77.0" prefHeight="285.0" prefWidth="132.0" />
-      <ListView layoutX="310.0" layoutY="78.0" prefHeight="285.0" prefWidth="132.0" />
-      <ListView layoutX="452.0" layoutY="78.0" prefHeight="285.0" prefWidth="132.0" />
-      <ListView layoutX="593.0" layoutY="77.0" prefHeight="285.0" prefWidth="132.0" />
+       <Text layoutX="81.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Students" wrappingWidth="62.666015625" />
+       <Text layoutX="214.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teachers" />
+       <Text layoutX="345.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instruments" />
+       <Text layoutX="500.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grades" />
       <Text layoutX="622.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accompanists" />
+      <ListView fx:id="listStudent" layoutX="32.0" layoutY="77.0" prefHeight="285.0" prefWidth="132.0" />
+      <ListView fx:id="listTeachers" layoutX="171.0" layoutY="77.0" prefHeight="285.0" prefWidth="132.0" />
+      <ListView fx:id="listInstruments" layoutX="310.0" layoutY="78.0" prefHeight="285.0" prefWidth="132.0" />
+      <ListView fx:id="listGrades" layoutX="452.0" layoutY="78.0" prefHeight="285.0" prefWidth="132.0" />
+      <ListView fx:id="listAccompanists" layoutX="593.0" layoutY="77.0" prefHeight="285.0" prefWidth="132.0" />
       <VBox layoutX="240.0" layoutY="84.0" prefHeight="285.0" prefWidth="272.0" />
       <HBox layoutX="32.0" layoutY="-3.0" prefHeight="387.0" prefWidth="717.0">
          <children>
@@ -47,7 +41,5 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button layoutX="209.0" layoutY="410.0" mnemonicParsing="false" text="add" />
-      <Button layoutX="269.0" layoutY="410.0" mnemonicParsing="false" text="delete" />
    </children>
 </AnchorPane>
