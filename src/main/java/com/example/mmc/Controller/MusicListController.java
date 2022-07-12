@@ -13,11 +13,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableView;
-
 public class MusicListController {
 
     @FXML
     public ListView listStudent;
+    ObservableList<StudentsEntity> studentList;
 
     @FXML
     public ListView listTeachers;
@@ -29,6 +29,7 @@ public class MusicListController {
 
     @FXML
     public ListView listGrades;
+    ObservableList<StudentsEntity> gradesList;
 
     @FXML
     public ListView listAccompanists;
@@ -42,12 +43,14 @@ public class MusicListController {
 
     @FXML
     public TableView tableItem;
-    ObservableList<StudentsEntity> studentList;
+
 
     public void initialize() {
         StudentDAO dao = new StudentDAO();
         studentList = dao.getAll();
+        gradesList = dao.getGrades();
         listStudent.setItems(studentList);
+        listGrades.setItems(gradesList);
 
         InstrumentDAO daoInst = new InstrumentDAO();
         instrumentsList = daoInst.getAll();
@@ -60,5 +63,7 @@ public class MusicListController {
         AccompanistDAO daoAcomp = new AccompanistDAO();
         accompanistList = daoAcomp.getAll();
         listAccompanists.setItems(accompanistList);
+
+
     }
 }
