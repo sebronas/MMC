@@ -8,10 +8,22 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class HelloApplication extends Application {
 
     Connection connection;
+
+    private void closeConnection() {
+        try {
+            connection.close();
+            System.exit(0);
+        }
+        catch (SQLException sqlException) {
+            System.err.println(sqlException.getMessage());
+            System.exit(1);
+        }
+    }
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -20,13 +32,14 @@ public class HelloApplication extends Application {
         stage.setTitle("List");
         stage.setScene(scene);
         stage.show();
-//        try {
-//            connection = DriverManager.getConnection("jdbc:...");
-//        }
-//        catch (SQLException sqlException) {
-//            sqlException.printStackTrace();
-//            System.exit(1);
-//        }
+        stage.setOnCloseRequest(e -> closeConnection());
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mmc_db_with_names", "root", "1234");
+        }
+        catch (SQLException sqlException) {
+            System.err.println(sqlException.getMessage());
+            System.exit(1);
+        }
     }
 
     public static void main(String[] args) {
