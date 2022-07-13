@@ -42,7 +42,7 @@ Please contact us if you have any questions
 
 ## Authors :technologist:
 
-@sebronas <br /> @elenabebrish <br /> @georgijskadolciks
+@sebronas <br /> @elenabebrish <br /> @georgs-k
 
 ## Version History
 •	0.1 - Initial Release
