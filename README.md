@@ -5,21 +5,17 @@ Accenture Bootcamp final project. <br /> 27/06/22-22/07/22
 ## Project Title
 A utility helping to organize students' auditions in a music school. This is a filter that allows you to see who is the teacher of a particular student, what class this student is in, what instrument he plays and who accompanies him. The received information can be displayed in a separate file and printed out. 
 This filter is read-only. Adding information is done manually through the database connected to the filter. In the future, it is possible to develop the addition and editing of the necessary information directly from the application. <br />
-Below you can see a flow chart that shows the logic of the interface. <br />
-![Flowchart](https://failiem.lv/u/n82qcqqpj#/view/h33cfjnk8)
+Below you can see a flow chart that shows the logic of the interface: <br />
+<a href="https://ibb.co/r614LdY"><img src="https://i.ibb.co/4T5PD1z/flowchart.png" alt="flowchart" border="0"></a>
 
 <br />
 Interface draft: <br />
+<br />
 
-![Interface](https://failiem.lv/u/n82qcqqpj#/view/av2t3k8bt)
+<a href="https://ibb.co/6nD8fNM"><img src="https://i.ibb.co/mDh0MSj/3-gui.jpg" alt="3-gui" border="0"></a>
 
+<br />
 ## Getting Started
-
-### **Dependencies**
-
-•	Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-
-•	ex. Windows 10
 
 ### **Installing**
 To develop this app we used: <br /> 
@@ -37,9 +33,7 @@ To develop this app we used: <br />
 •	You will be able to see the result printed on the window.
 
 ## Help
-Any advise for common problems or issues.
-command to run if program contains helper info
-
+Please contact us if you have any questions
 
 ## Authors
 
@@ -51,7 +45,7 @@ command to run if program contains helper info
 
 ## License
 
-This project is not licensed but you can use this project for personal use with the consent of the authors of the project.
+This project is not licensed but you can use it for personal use with the consent of the authors of the project.
 
 ## Acknowledgments
 
