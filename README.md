@@ -1,12 +1,14 @@
 # MMC
-Accenture Bootcamp final project. A utility helping to organize students' auditions in a music school.
+Accenture Bootcamp final project. <br /> 27/06/22-22/07/22
 
 
 ## Project Title
+A utility helping to organize students' auditions in a music school. This is a filter that allows you to see who is the teacher of a particular student, what class this student is in, what instrument he plays and who accompanies him. The received information can be displayed in a separate file and printed out. 
+This filter is read-only. Adding information is done manually through the database connected to the filter. In the future, it is possible to develop the addition and editing of the necessary information directly from the application. <br />
+Below you can see a flow chart that shows the logic of the interface.
 
-Simple overview of use/purpose.
-Description
-An in-depth paragraph about your project and overview of use.
+<br />
+Interface draft
 
 
 ## Getting Started
