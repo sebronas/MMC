@@ -24,8 +24,9 @@ Interface draft: <br />
 ### **Installing** :computer:
 To develop this app we used: <br /> 
 
-•	IntelliJ IDEA (any version that supports Java 11) <br /> 
-•	MySQL database <br /> 
+•	IntelliJ IDEA Community <br /> 
+•	Java OpenJDK 11 <br /> 
+•	MySQL Workbench <br /> 
 •	JavaFX - SceneBuilder <br /> 
 •	Hibernate Query Language (HQL)
 
