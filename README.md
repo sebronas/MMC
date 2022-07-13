@@ -41,7 +41,7 @@ Please contact us if you have any questions
 
 ## Authors :technologist:
 
-@kristapslv <br /> @elenabebrish <br /> @georgijskadolciks
+@sebronas <br /> @elenabebrish <br /> @georgijskadolciks
 
 ## Version History
 •	0.1 - Initial Release
