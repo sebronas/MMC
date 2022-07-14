@@ -3,9 +3,11 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
 
 <AnchorPane prefHeight="423.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.mmc.HelloController">
+   <Button layoutX="350" layoutY="400" text="Request / Clear" onAction="#onAction"/>
    <Text layoutX="622.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accompanists"/>
    <Text layoutX="500.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teachers"/>
    <Text layoutX="345.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instruments"/>
