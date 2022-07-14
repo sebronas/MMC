@@ -15,7 +15,7 @@ Below you can see the flow chart that describes the logics of the interface: <br
 Interface draft: <br />
 <br />
 
-<a href="https://ibb.co/6nD8fNM"><img src="https://i.ibb.co/mDh0MSj/3-gui.jpg" alt="3-gui" border="0"></a>
+<a href="https://ibb.co/WstKjXN"><img src="https://i.ibb.co/KmwySgc/7-gui.jpg" alt="7-gui" border="0"></a><br /><a target='_blank' href='https://500pxdownload.com/'>instagram picture grabber</a><br />
 
 <br />
 
