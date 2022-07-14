@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.sql.*;
 import java.util.TreeSet;
@@ -45,6 +47,9 @@ public class HelloController {
     private final ObservableList<String> selectedTeacherList = FXCollections.observableArrayList();
     private final ObservableList<String> selectedAccompanistList = FXCollections.observableArrayList();
 
+    @FXML
+    ImageView myImageView;
+
     public void initialize() {
         studentList.setItems(studentObservList);
         gradeList.setItems(gradeObservList);
@@ -56,6 +61,15 @@ public class HelloController {
         instrumentList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         teacherList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         accompanistList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+      /*  Image myImage = new Image(getClass().getResourceAsStream("Icon.png"));
+
+        public void displayImage() {
+            myImageView.setImage(myImage);
+        }*/
+
+        /*Image viewImage = new Image("Icon.png");
+        myImageView.setImage(viewImage);*/
     }
 
     @FXML
@@ -65,7 +79,7 @@ public class HelloController {
 
     static void openConnection() {
         try {
-            HelloApplication.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mmc_db", "root", "1234");
+            HelloApplication.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mmc_db", "root", "Jm111000");
         } catch (SQLException sqlException) {
             System.err.println(sqlException.getMessage());
             System.exit(1);
