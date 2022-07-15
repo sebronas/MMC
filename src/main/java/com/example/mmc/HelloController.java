@@ -4,8 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -50,6 +49,9 @@ public class HelloController {
     @FXML
     ImageView myImageView;
 
+    @FXML
+    TextArea textArea;
+
     public void initialize() {
         studentList.setItems(studentObservList);
         gradeList.setItems(gradeObservList);
@@ -68,8 +70,12 @@ public class HelloController {
             myImageView.setImage(myImage);
         }*/
 
-        /*Image viewImage = new Image("Icon.png");
-        myImageView.setImage(viewImage);*/
+    }
+
+    public void showImage() {
+        Image image = new Image("Icon.jpg");
+        myImageView.setImage(image);
+        myImageView.setCache(true);
     }
 
     @FXML
@@ -193,4 +199,13 @@ public class HelloController {
         teacherObservList.setAll(teacherSet);
         accompanistObservList.setAll(accompanistSet);
     }
+
+    @FXML
+    private void onListAddAction(ActionEvent event){
+        /*if (!studentList.isEmpty())
+            for (String string : studentList) textArea.setText(string + "\n");*/
+        textArea.setText(selectedStudentList.get(0));
+        textArea.isEditable();
+    }
+
 }

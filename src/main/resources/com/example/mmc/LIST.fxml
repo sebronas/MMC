@@ -46,14 +46,13 @@
    <ListView fx:id="instrumentList" layoutX="631.0" layoutY="266.0" prefHeight="243.0" prefWidth="132.0" />
    <ListView fx:id="teacherList" layoutX="489.0" layoutY="266.0" prefHeight="243.0" prefWidth="132.0" />
    <ListView fx:id="accompanistList" layoutX="630.0" layoutY="119.0" prefHeight="126.0" prefWidth="132.0" />
-   <TextArea layoutX="14.0" layoutY="16.0" prefHeight="494.0" prefWidth="269.0" />
-   <Text layoutX="127.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Result list [editable &amp; printable]" textAlignment="CENTER" wrappingWidth="66.26171875" />
+   <TextArea fx:id="textArea" layoutX="14.0" layoutY="16.0" prefHeight="494.0" prefWidth="249.0" />
    <Text layoutX="294.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MUSIC MASTER'S COMPANION" textAlignment="CENTER" wrappingWidth="500.0">
       <font>
          <Font name="Franklin Gothic Demi" size="15.0" />
       </font>
    </Text>
-   <Button layoutX="98.0" layoutY="517.0" prefHeight="27.0" prefWidth="124.0" text="Print selections" textAlignment="CENTER" underline="true">
+   <Button fx:id="ADD" layoutX="277.0" layoutY="278.0" onAction="#onListAddAction" prefHeight="36.0" prefWidth="55.0" text="ADD" textAlignment="CENTER" underline="true">
       <font>
          <Font size="13.0" />
       </font>
@@ -65,14 +64,14 @@
    </Text>
    <Line endX="-70.0" endY="1.0" layoutX="574.0" layoutY="65.0" startX="-100.0" stroke="#ab9f9f" />
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dee1e4" height="36.0" layoutX="504.0" layoutY="48.0" opacity="0.21" stroke="BLACK" strokeType="INSIDE" width="255.0" />
-   <Text layoutX="419.0" layoutY="535.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*To clear selections, press this button one more time" textAlignment="CENTER" wrappingWidth="280.0">
+   <Text layoutX="20.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*To clear selections, press the button &quot;Select / Clear&quot; one more time. To put it on the results list, press the button &quot;ADD&quot;." textAlignment="CENTER" wrappingWidth="610.0">
       <font>
          <Font name="Franklin Gothic Book" size="12.0" />
       </font>
    </Text>
-   <ImageView fx:id="myImageView" fitHeight="74.0" fitWidth="106.0" layoutX="262.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="myImageView" fitHeight="74.0" fitWidth="106.0" layoutX="252.0" layoutY="319.0" onDragDetected="#showImage" pickOnBounds="true" preserveRatio="true">
       <image>
-         <Image url="@../../../../java/com/example/mmc/Icon.png" />
+         <Image url="@../../../Icon.png" />
       </image>
    </ImageView>
 </AnchorPane>
