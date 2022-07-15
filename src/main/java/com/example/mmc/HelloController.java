@@ -14,6 +14,12 @@ import java.util.TreeSet;
 public class HelloController {
 
     @FXML
+    private ImageView myImageView;
+
+    @FXML
+    private TextArea textArea;
+
+    @FXML
     private ListView studentList;
 
     @FXML
@@ -46,12 +52,6 @@ public class HelloController {
     private final ObservableList<String> selectedTeacherList = FXCollections.observableArrayList();
     private final ObservableList<String> selectedAccompanistList = FXCollections.observableArrayList();
 
-    @FXML
-    ImageView myImageView;
-
-    @FXML
-    TextArea textArea;
-
     public void initialize() {
         studentList.setItems(studentObservList);
         gradeList.setItems(gradeObservList);
@@ -63,30 +63,40 @@ public class HelloController {
         instrumentList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         teacherList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         accompanistList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
-      /*  Image myImage = new Image(getClass().getResourceAsStream("Icon.png"));
-
-        public void displayImage() {
-            myImageView.setImage(myImage);
-        }*/
-
+        textArea.isEditable();
     }
 
-    public void showImage() {
+    @FXML
+    private void showImage() {
         Image image = new Image("Icon.jpg");
         myImageView.setImage(image);
         myImageView.setCache(true);
     }
 
     @FXML
-    private void onAction(ActionEvent event) {
+    private void onRequestOrClearAction(ActionEvent event) {
         retrieveData(generateQuery());
+    }
+
+    @FXML
+    private void onListAddAction(ActionEvent event) {
+        ObservableList<String> selectedList = FXCollections.observableArrayList();
+        selectedList.setAll(studentList.getSelectionModel().getSelectedItems());
+        if (!selectedList.isEmpty()) {
+            for (String string : selectedList)
+                textArea.appendText(string + "\n");
+            return;
+        }
+        if (!studentObservList.isEmpty())
+            for (String string : studentObservList)
+                textArea.appendText(string + "\n");
     }
 
     static void openConnection() {
         try {
-            HelloApplication.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mmc_db", "root", "Jm111000");
-        } catch (SQLException sqlException) {
+            HelloApplication.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mmc_db", "root", "1234");
+        }
+        catch (SQLException sqlException) {
             System.err.println(sqlException.getMessage());
             System.exit(1);
         }
@@ -165,10 +175,6 @@ public class HelloController {
             queryBuilder.delete(queryBuilder.length() - 2, queryBuilder.length());
             queryBuilder.append(") ");
         }
-
-        // This is the query output, just for testing
-        System.out.println(queryBuilder);
-
         return queryBuilder.toString();
     }
 
@@ -178,8 +184,7 @@ public class HelloController {
         instrumentSet.clear();
         teacherSet.clear();
         accompanistSet.clear();
-        try {
-            Statement statement = HelloApplication.connection.createStatement();
+        try (Statement statement = HelloApplication.connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 studentSet.add(resultSet.getString("Student"));
@@ -199,20 +204,4 @@ public class HelloController {
         teacherObservList.setAll(teacherSet);
         accompanistObservList.setAll(accompanistSet);
     }
-
-    @FXML
-    private void onListAddAction(ActionEvent event){
-        ObservableList<String> selectedList = FXCollections.observableArrayList();
-        selectedList.setAll(studentList.getSelectionModel().getSelectedItems());
-        if (!selectedList.isEmpty()) {
-            for (String string : selectedList)textArea.appendText(string + "\n");
-            return;
-        }
-        if (!studentObservList.isEmpty())
-            for (String string : studentObservList)
-                textArea.appendText(string + "\n");
-
-        textArea.isEditable();
-    }
-
 }
