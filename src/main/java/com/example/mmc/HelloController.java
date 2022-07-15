@@ -202,9 +202,16 @@ public class HelloController {
 
     @FXML
     private void onListAddAction(ActionEvent event){
-        /*if (!studentList.isEmpty())
-            for (String string : studentList) textArea.setText(string + "\n");*/
-        textArea.setText(selectedStudentList.get(0));
+        ObservableList<String> selectedList = FXCollections.observableArrayList();
+        selectedList.setAll(studentList.getSelectionModel().getSelectedItems());
+        if (!selectedList.isEmpty()) {
+            for (String string : selectedList)textArea.appendText(string + "\n");
+            return;
+        }
+        if (!studentObservList.isEmpty())
+            for (String string : studentObservList)
+                textArea.appendText(string + "\n");
+
         textArea.isEditable();
     }
 
