@@ -4,10 +4,9 @@ Accenture Bootcamp final project. <br /> :shipit: 27/06/22-22/07/22
 
 ## Project Title :bulb:
 A utility helping to organize students' music school auditions. 
-This is a filter that allows you to see who is the teacher of a particular student, what class this student is in, what instrument he plays and who accompanies him. The received information can be displayed in a separate file and printed out. 
+This is a filter that allows you to see who is the teacher of a particular student, what class this student is in, what instrument he plays and who accompanies him. The received information can be displayed in a separate window and printed out. 
 
-This filter is not read-only (editing is possible) and adding information is done manually through the database connected to the filter. In later updates it is possible to develop the
-feature for users to add new students. <br />
+This filter is not read-only (editing is possible) and adding information is done manually through the database connected to the filter. In later updates it is possible to develop the feature for users to add new students. <br />
 <br />
 Below you can see the flow chart that describes the logics of the interface: <br />
 <a href="https://ibb.co/r614LdY"><img src="https://i.ibb.co/4T5PD1z/flowchart.png" alt="flowchart" border="0"></a>
