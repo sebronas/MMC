@@ -17,7 +17,7 @@
    <Line endX="425.0" endY="187.0" layoutX="366.0" layoutY="161.0" startX="-378.0" startY="187.0" stroke="#7aaed0" strokeWidth="8.0" />
    <Line endX="425.0" endY="187.0" layoutX="356.0" layoutY="151.0" startX="-375.0" startY="187.0" stroke="#7aaed0" strokeWidth="8.0" />
    <Line endX="425.0" endY="187.0" layoutX="346.0" layoutY="141.0" startX="-351.0" startY="187.0" stroke="#7aaed0" strokeWidth="8.0" />
-   <Button layoutX="349.0" layoutY="52.0" onAction="#onRequestOrClearAction" prefHeight="27.0" prefWidth="124.0" text="Select / Clear" textAlignment="CENTER" underline="true">
+   <Button layoutX="349.0" layoutY="52.0" onAction="#onRequestOrClearAction" prefHeight="27.0" prefWidth="124.0" text="Select / Reload" textAlignment="CENTER" underline="true">
       <font>
          <Font size="13.0" />
       </font></Button>
@@ -64,7 +64,7 @@
    </Text>
    <Line endX="-70.0" endY="1.0" layoutX="574.0" layoutY="65.0" startX="-100.0" stroke="#ab9f9f" />
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dee1e4" height="36.0" layoutX="504.0" layoutY="48.0" opacity="0.21" stroke="BLACK" strokeType="INSIDE" width="255.0" />
-   <Text layoutX="20.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*To clear selections, press the button &quot;Select / Clear&quot; one more time. To put it on the results list, press the button &quot;ADD&quot;." textAlignment="CENTER" wrappingWidth="610.0">
+   <Text layoutX="19.0" layoutY="530.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*To clear selections, press the button &quot;Select / Reload&quot; one more time. To put it on the results list, press the button &quot;ADD&quot;." textAlignment="CENTER" wrappingWidth="626.0">
       <font>
          <Font name="Franklin Gothic Book" size="12.0" />
       </font>
@@ -74,4 +74,9 @@
          <Image url="@../../../Icon.png" />
       </image>
    </ImageView>
+   <Button fx:id="print" layoutX="277.0" layoutY="403.0" onAction="#printResult" prefHeight="36.0" prefWidth="55.0" text="Print" textAlignment="CENTER" underline="true">
+      <font>
+         <Font size="13.0" />
+      </font>
+   </Button>
 </AnchorPane>

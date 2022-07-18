@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.print.*;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -74,6 +75,21 @@ public class HelloController {
     }
 
     @FXML
+    private void printResult(){
+        PrinterJob job = PrinterJob.createPrinterJob();
+
+        if(job != null && job.showPrintDialog(textArea.getScene().getWindow())){
+            Printer printer = job.getPrinter();
+            PageLayout pageLayout = printer.createPageLayout(Paper.A4, PageOrientation.LANDSCAPE, Printer.MarginType.HARDWARE_MINIMUM);
+            PrintResolution resolution = job.getJobSettings().getPrintResolution();
+            boolean success = job.printPage(pageLayout, textArea);
+            if(success){
+                job.endJob();
+            }
+        }
+    }
+
+    @FXML
     private void onRequestOrClearAction(ActionEvent event) {
         retrieveData(generateQuery());
     }
@@ -94,7 +110,7 @@ public class HelloController {
 
     static void openConnection() {
         try {
-            HelloApplication.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mmc_db", "root", "1234");
+            HelloApplication.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mmc_db", "root", "Jm111000");
         }
         catch (SQLException sqlException) {
             System.err.println(sqlException.getMessage());
