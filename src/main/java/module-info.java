@@ -10,6 +10,7 @@ module com.example.mmc {
     requires java.persistence;
     requires mysql.connector.java;
     requires java.sql;
+    requires lombok;
 
     opens com.example.mmc to javafx.fxml;
     opens com.example.mmc.Model to org.hibernate.orm.core;

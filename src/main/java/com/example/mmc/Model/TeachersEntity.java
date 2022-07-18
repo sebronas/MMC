@@ -1,10 +1,14 @@
 package com.example.mmc.Model;
 
+import lombok.Data;
+
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "teachers")
+@Data
 public class TeachersEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -14,32 +18,7 @@ public class TeachersEntity {
     @Column(name = "Teacher")
     private String teacher;
 
-    public int getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(int teacherId) {
-        this.teacherId = teacherId;
-    }
-
-    public String getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(String teacher) {
-        this.teacher = teacher;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        TeachersEntity that = (TeachersEntity) o;
-        return teacherId == that.teacherId && Objects.equals(teacher, that.teacher);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(teacherId, teacher);
-    }
+    @OneToMany
+    @JoinColumn(name = "StudentsID")
+    private List<StudentsEntity> studentsID;
 }

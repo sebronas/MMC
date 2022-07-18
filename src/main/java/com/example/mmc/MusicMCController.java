@@ -55,6 +55,7 @@ public class MusicMCController {
         instrumentObservList = daoInst.getAll();
         instrumentList.setItems(instrumentObservList);
 
+
         TeacherDAO daoTeach = new TeacherDAO();
         teacherObservList = daoTeach.getAll();
         teacherList.setItems(teacherObservList);
