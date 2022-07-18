@@ -1,13 +1,10 @@
 package com.example.mmc.Model;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "teachers")
-@Data
 public class TeacherEntity {
 
     @Id

@@ -1,13 +1,6 @@
 package com.example.mmc;
 
-import com.example.mmc.DAO.AccompanistDAO;
-import com.example.mmc.DAO.InstrumentDAO;
-import com.example.mmc.DAO.StudentDAO;
-import com.example.mmc.DAO.TeacherDAO;
-import com.example.mmc.Model.AccompanistEntity;
-import com.example.mmc.Model.InstrumentEntity;
 import com.example.mmc.Model.StudentEntity;
-import com.example.mmc.Model.TeacherEntity;
 import com.example.mmc.Utility.HibernateUtil;
 
 import javafx.collections.FXCollections;
@@ -72,7 +65,7 @@ public class MusicMCController {
     private final ObservableList<String> selectedTeacherList = FXCollections.observableArrayList();
     private final ObservableList<String> selectedAccompanistList = FXCollections.observableArrayList();
 
-    private List<StudentEntity> allStudents, filteredStudents;
+    private List<StudentEntity> allStudents;
 
     public void initialize() {
         Session session = HibernateUtil.getSession();
@@ -107,7 +100,7 @@ public class MusicMCController {
         selectedInstrumentList.setAll(instrumentList.getSelectionModel().getSelectedItems());
         selectedTeacherList.setAll(teacherList.getSelectionModel().getSelectedItems());
         selectedAccompanistList.setAll(accompanistList.getSelectionModel().getSelectedItems());
-        filteredStudents = allStudents.stream()
+        List<StudentEntity> filteredStudents = allStudents.stream()
                 .filter(st -> selectedStudentList.isEmpty()
                         || selectedStudentList.contains(st.getStudent()))
                 .filter(st -> selectedGradeList.isEmpty()
@@ -124,11 +117,13 @@ public class MusicMCController {
         instrumentSet.clear();
         teacherSet.clear();
         accompanistSet.clear();
-        for (StudentEntity st : filteredStudents) studentSet.add(st.getStudent());
-        for (StudentEntity st : filteredStudents) gradeSet.add(st.getGrade());
-        for (StudentEntity st : filteredStudents) instrumentSet.add(st.getInstrumentId().getInstrument());
-        for (StudentEntity st : filteredStudents) teacherSet.add(st.getTeacherId().getTeacher());
-        for (StudentEntity st : filteredStudents) accompanistSet.add(st.getAccompanistId().getAccompanist());
+        for (StudentEntity st : filteredStudents) {
+            studentSet.add(st.getStudent());
+            gradeSet.add(st.getGrade());
+            instrumentSet.add(st.getInstrumentId().getInstrument());
+            teacherSet.add(st.getTeacherId().getTeacher());
+            accompanistSet.add(st.getAccompanistId().getAccompanist());
+        }
         studentObservList.setAll(studentSet);
         gradeObservList.setAll(gradeSet);
         instrumentObservList.setAll(instrumentSet);

@@ -1,12 +1,9 @@
 package com.example.mmc.Model;
 
-import lombok.Data;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "students")
-@Data
 public class StudentEntity {
 
     @Id
