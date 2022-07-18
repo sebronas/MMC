@@ -9,6 +9,7 @@ import com.example.mmc.Model.InstrumentEntity;
 import com.example.mmc.Model.StudentEntity;
 import com.example.mmc.Model.TeacherEntity;
 import com.example.mmc.Utility.HibernateUtil;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,11 +20,16 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
 import org.hibernate.Session;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+
 import java.util.List;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 public class MusicMCController {
 
@@ -47,6 +53,12 @@ public class MusicMCController {
 
     @FXML
     public ListView accompanistList;
+
+    private final TreeSet<String> studentSet = new TreeSet<>();
+    private final TreeSet<String> gradeSet = new TreeSet<>();
+    private final TreeSet<String> instrumentSet = new TreeSet<>();
+    private final TreeSet<String> teacherSet = new TreeSet<>();
+    private final TreeSet<String> accompanistSet = new TreeSet<>();
 
     private final ObservableList<String> studentObservList = FXCollections.observableArrayList();
     private final ObservableList<String> gradeObservList = FXCollections.observableArrayList();
@@ -79,27 +91,6 @@ public class MusicMCController {
         instrumentList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         teacherList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         accompanistList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
-//        System.out.println(allStudents.get(10).getTeacherId().getTeacher());
-//
-//        StudentDAO dao = new StudentDAO();
-//        studentObservList = dao.getAll();
-//        gradeObservList = dao.getGrades();
-//        studentList.setItems(studentObservList);
-//        gradeList.setItems(gradeObservList);
-//
-//        InstrumentDAO daoInst = new InstrumentDAO();
-//        instrumentObservList = daoInst.getAll();
-//        instrumentList.setItems(instrumentObservList);
-//
-//
-//        TeacherDAO daoTeach = new TeacherDAO();
-//        teacherObservList = daoTeach.getAll();
-//        teacherList.setItems(teacherObservList);
-//
-//        AccompanistDAO daoAcomp = new AccompanistDAO();
-//        accompanistObservList = daoAcomp.getAll();
-//        accompanistList.setItems(accompanistObservList);
     }
 
     @FXML
@@ -110,20 +101,39 @@ public class MusicMCController {
     }
 
     @FXML
-    private void onPrintAction(ActionEvent event) {
-        PrinterJob job = PrinterJob.createPrinterJob();
-        if (job != null && job.showPrintDialog(textArea.getScene().getWindow())) {
-            Printer printer = job.getPrinter();
-            PageLayout pageLayout = printer.createPageLayout(Paper.A4, PageOrientation.PORTRAIT, Printer.MarginType.HARDWARE_MINIMUM);
-            PrintResolution resolution = job.getJobSettings().getPrintResolution();
-            boolean success = job.printPage(pageLayout, textArea);
-            if (success) job.endJob();
-        }
-    }
-
-    @FXML
     private void onRequestOrReloadAction(ActionEvent event) {
-
+        selectedStudentList.setAll(studentList.getSelectionModel().getSelectedItems());
+        selectedGradeList.setAll(gradeList.getSelectionModel().getSelectedItems());
+        selectedInstrumentList.setAll(instrumentList.getSelectionModel().getSelectedItems());
+        selectedTeacherList.setAll(teacherList.getSelectionModel().getSelectedItems());
+        selectedAccompanistList.setAll(accompanistList.getSelectionModel().getSelectedItems());
+        filteredStudents = allStudents.stream()
+                .filter(st -> selectedStudentList.isEmpty()
+                        || selectedStudentList.contains(st.getStudent()))
+                .filter(st -> selectedGradeList.isEmpty()
+                        || selectedGradeList.contains(st.getGrade()))
+                .filter(st -> selectedInstrumentList.isEmpty()
+                        || selectedInstrumentList.contains(st.getInstrumentId().getInstrument()))
+                .filter(st -> selectedTeacherList.isEmpty()
+                        || selectedTeacherList.contains(st.getTeacherId().getTeacher()))
+                .filter(st -> selectedAccompanistList.isEmpty()
+                        || selectedAccompanistList.contains(st.getAccompanistId().getAccompanist()))
+                .collect(Collectors.toList());
+        studentSet.clear();
+        gradeSet.clear();
+        instrumentSet.clear();
+        teacherSet.clear();
+        accompanistSet.clear();
+        for (StudentEntity st : filteredStudents) studentSet.add(st.getStudent());
+        for (StudentEntity st : filteredStudents) gradeSet.add(st.getGrade());
+        for (StudentEntity st : filteredStudents) instrumentSet.add(st.getInstrumentId().getInstrument());
+        for (StudentEntity st : filteredStudents) teacherSet.add(st.getTeacherId().getTeacher());
+        for (StudentEntity st : filteredStudents) accompanistSet.add(st.getAccompanistId().getAccompanist());
+        studentObservList.setAll(studentSet);
+        gradeObservList.setAll(gradeSet);
+        instrumentObservList.setAll(instrumentSet);
+        teacherObservList.setAll(teacherSet);
+        accompanistObservList.setAll(accompanistSet);
     }
 
     @FXML
@@ -138,5 +148,17 @@ public class MusicMCController {
         if (!studentObservList.isEmpty())
             for (String string : studentObservList)
                 textArea.appendText(string + "\n");
+    }
+
+    @FXML
+    private void onPrintAction(ActionEvent event) {
+        PrinterJob job = PrinterJob.createPrinterJob();
+        if (job != null && job.showPrintDialog(textArea.getScene().getWindow())) {
+            Printer printer = job.getPrinter();
+            PageLayout pageLayout = printer.createPageLayout(Paper.A4, PageOrientation.PORTRAIT, Printer.MarginType.HARDWARE_MINIMUM);
+            PrintResolution resolution = job.getJobSettings().getPrintResolution();
+            boolean success = job.printPage(pageLayout, textArea);
+            if (success) job.endJob();
+        }
     }
 }

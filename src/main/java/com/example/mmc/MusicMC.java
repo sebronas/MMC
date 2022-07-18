@@ -12,7 +12,7 @@ public class MusicMC extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MusicMC.class.getResource("MusicMC.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 780, 540);
+        Scene scene = new Scene(fxmlLoader.load(), 820, 560);
         stage.setTitle("Music Master's Companion");
         stage.setScene(scene);
         stage.show();
