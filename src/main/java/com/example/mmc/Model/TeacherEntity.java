@@ -21,4 +21,8 @@ public class TeacherEntity {
     @OneToMany
     @JoinColumn(name = "StudentsID")
     private List<StudentEntity> studentsID;
+
+    public String getTeacher() {
+        return teacher;
+    }
 }

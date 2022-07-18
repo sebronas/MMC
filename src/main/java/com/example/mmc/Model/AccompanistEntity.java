@@ -21,4 +21,8 @@ public class AccompanistEntity {
     @OneToMany
     @JoinColumn(name = "StudentsID")
     private List<StudentEntity> studentsID;
+
+    public String getAccompanist() {
+        return accompanist;
+    }
 }

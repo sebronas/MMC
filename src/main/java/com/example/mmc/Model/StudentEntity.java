@@ -32,4 +32,14 @@ public class StudentEntity {
     @ManyToOne
     @JoinColumn(name = "AccompanistID")
     private AccompanistEntity accompanistId;
+
+    public String getStudent() { return student; }
+
+    public String getGrade() { return grade; }
+
+    public InstrumentEntity getInstrumentId() { return instrumentId; }
+
+    public TeacherEntity getTeacherId() { return teacherId; }
+
+    public AccompanistEntity getAccompanistId() { return accompanistId; }
 }

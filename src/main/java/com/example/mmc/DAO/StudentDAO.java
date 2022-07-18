@@ -21,8 +21,11 @@ public class StudentDAO {
 
         Root<StudentEntity> root = query.from(StudentEntity.class);
 
-        List<StudentEntity> studentsList = session.createQuery(query.select(root.get("student"))).getResultList();
+        List<StudentEntity> studentsList = session.createQuery(query).getResultList();
         System.out.println(studentsList.toString());
+
+        System.out.println(studentsList.get(3).getTeacherId().getTeacher());
+
         session.close();
 
         return FXCollections.observableArrayList(studentsList);

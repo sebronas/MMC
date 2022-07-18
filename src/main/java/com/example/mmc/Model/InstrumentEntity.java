@@ -21,4 +21,6 @@ public class InstrumentEntity {
     @OneToMany
     @JoinColumn(name = "StudentsID")
     private List<StudentEntity> studentsID;
+
+    public String getInstrument() { return instrument; }
 }
