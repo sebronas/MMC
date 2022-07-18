@@ -8,13 +8,22 @@ import com.example.mmc.Model.AccompanistEntity;
 import com.example.mmc.Model.InstrumentEntity;
 import com.example.mmc.Model.StudentEntity;
 import com.example.mmc.Model.TeacherEntity;
+import com.example.mmc.Utility.HibernateUtil;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.print.*;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import org.hibernate.Session;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.util.List;
 
 public class MusicMCController {
 
@@ -26,43 +35,71 @@ public class MusicMCController {
 
     @FXML
     public ListView studentList;
-    ObservableList<StudentEntity> studentObservList;
-
-    @FXML
-    public ListView teacherList;
-    ObservableList<TeacherEntity> teacherObservList;
-
-    @FXML
-    public ListView instrumentList;
-    ObservableList<InstrumentEntity> instrumentObservList;
 
     @FXML
     public ListView gradeList;
-    ObservableList<StudentEntity> gradeObservList;
+
+    @FXML
+    public ListView instrumentList;
+
+    @FXML
+    public ListView teacherList;
 
     @FXML
     public ListView accompanistList;
-    ObservableList<AccompanistEntity> accompanistObservList;
+
+    private final ObservableList<String> studentObservList = FXCollections.observableArrayList();
+    private final ObservableList<String> gradeObservList = FXCollections.observableArrayList();
+    private final ObservableList<String> instrumentObservList = FXCollections.observableArrayList();
+    private final ObservableList<String> teacherObservList = FXCollections.observableArrayList();
+    private final ObservableList<String> accompanistObservList = FXCollections.observableArrayList();
+
+    private final ObservableList<String> selectedStudentList = FXCollections.observableArrayList();
+    private final ObservableList<String> selectedGradeList = FXCollections.observableArrayList();
+    private final ObservableList<String> selectedInstrumentList = FXCollections.observableArrayList();
+    private final ObservableList<String> selectedTeacherList = FXCollections.observableArrayList();
+    private final ObservableList<String> selectedAccompanistList = FXCollections.observableArrayList();
+
+    private List<StudentEntity> allStudents, filteredStudents;
 
     public void initialize() {
-        StudentDAO dao = new StudentDAO();
-        studentObservList = dao.getAll();
-        gradeObservList = dao.getGrades();
+        Session session = HibernateUtil.getSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery query = builder.createQuery(StudentEntity.class);
+        Root<StudentEntity> root = query.from(StudentEntity.class);
+        allStudents = session.createQuery(query).getResultList();
+        session.close();
         studentList.setItems(studentObservList);
         gradeList.setItems(gradeObservList);
-
-        InstrumentDAO daoInst = new InstrumentDAO();
-        instrumentObservList = daoInst.getAll();
         instrumentList.setItems(instrumentObservList);
-
-
-        TeacherDAO daoTeach = new TeacherDAO();
-        teacherObservList = daoTeach.getAll();
         teacherList.setItems(teacherObservList);
-
-        AccompanistDAO daoAcomp = new AccompanistDAO();
-        accompanistObservList = daoAcomp.getAll();
         accompanistList.setItems(accompanistObservList);
+        studentList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        gradeList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        instrumentList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        teacherList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        accompanistList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+//        System.out.println(allStudents.get(10).getTeacherId().getTeacher());
+//
+//        StudentDAO dao = new StudentDAO();
+//        studentObservList = dao.getAll();
+//        gradeObservList = dao.getGrades();
+//        studentList.setItems(studentObservList);
+//        gradeList.setItems(gradeObservList);
+//
+//        InstrumentDAO daoInst = new InstrumentDAO();
+//        instrumentObservList = daoInst.getAll();
+//        instrumentList.setItems(instrumentObservList);
+//
+//
+//        TeacherDAO daoTeach = new TeacherDAO();
+//        teacherObservList = daoTeach.getAll();
+//        teacherList.setItems(teacherObservList);
+//
+//        AccompanistDAO daoAcomp = new AccompanistDAO();
+//        accompanistObservList = daoAcomp.getAll();
+//        accompanistList.setItems(accompanistObservList);
     }
 
     @FXML
@@ -73,12 +110,33 @@ public class MusicMCController {
     }
 
     @FXML
+    private void onPrintAction(ActionEvent event) {
+        PrinterJob job = PrinterJob.createPrinterJob();
+        if (job != null && job.showPrintDialog(textArea.getScene().getWindow())) {
+            Printer printer = job.getPrinter();
+            PageLayout pageLayout = printer.createPageLayout(Paper.A4, PageOrientation.PORTRAIT, Printer.MarginType.HARDWARE_MINIMUM);
+            PrintResolution resolution = job.getJobSettings().getPrintResolution();
+            boolean success = job.printPage(pageLayout, textArea);
+            if (success) job.endJob();
+        }
+    }
+
+    @FXML
     private void onRequestOrReloadAction(ActionEvent event) {
 
     }
 
     @FXML
     private void onListAddAction(ActionEvent event) {
-
+        ObservableList<String> selectedList = FXCollections.observableArrayList();
+        selectedList.setAll(studentList.getSelectionModel().getSelectedItems());
+        if (!selectedList.isEmpty()) {
+            for (String string : selectedList)
+                textArea.appendText(string + "\n");
+            return;
+        }
+        if (!studentObservList.isEmpty())
+            for (String string : studentObservList)
+                textArea.appendText(string + "\n");
     }
 }
