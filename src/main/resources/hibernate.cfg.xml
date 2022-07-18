@@ -10,9 +10,9 @@
       <property name="connection.password">1234</property>
 
     <mapping class="com.example.mmc.Model.AccompanistEntity"/>
-    <mapping class="com.example.mmc.Model.InstrumentsEntity"/>
-    <mapping class="com.example.mmc.Model.StudentsEntity"/>
-    <mapping class="com.example.mmc.Model.TeachersEntity"/>
+    <mapping class="com.example.mmc.Model.InstrumentEntity"/>
+    <mapping class="com.example.mmc.Model.StudentEntity"/>
+    <mapping class="com.example.mmc.Model.TeacherEntity"/>
 
 
     <!-- DB schema will be updated if needed -->

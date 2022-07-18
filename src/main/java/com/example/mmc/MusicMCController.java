@@ -5,9 +5,9 @@ import com.example.mmc.DAO.InstrumentDAO;
 import com.example.mmc.DAO.StudentDAO;
 import com.example.mmc.DAO.TeacherDAO;
 import com.example.mmc.Model.AccompanistEntity;
-import com.example.mmc.Model.InstrumentsEntity;
-import com.example.mmc.Model.StudentsEntity;
-import com.example.mmc.Model.TeachersEntity;
+import com.example.mmc.Model.InstrumentEntity;
+import com.example.mmc.Model.StudentEntity;
+import com.example.mmc.Model.TeacherEntity;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,19 +26,19 @@ public class MusicMCController {
 
     @FXML
     public ListView studentList;
-    ObservableList<StudentsEntity> studentObservList;
+    ObservableList<StudentEntity> studentObservList;
 
     @FXML
     public ListView teacherList;
-    ObservableList<TeachersEntity> teacherObservList;
+    ObservableList<TeacherEntity> teacherObservList;
 
     @FXML
     public ListView instrumentList;
-    ObservableList<InstrumentsEntity> instrumentObservList;
+    ObservableList<InstrumentEntity> instrumentObservList;
 
     @FXML
     public ListView gradeList;
-    ObservableList<StudentsEntity> gradeObservList;
+    ObservableList<StudentEntity> gradeObservList;
 
     @FXML
     public ListView accompanistList;

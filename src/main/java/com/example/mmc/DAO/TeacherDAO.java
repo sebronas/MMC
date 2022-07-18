@@ -1,6 +1,6 @@
 package com.example.mmc.DAO;
 
-import com.example.mmc.Model.TeachersEntity;
+import com.example.mmc.Model.TeacherEntity;
 import com.example.mmc.Utility.HibernateUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,14 +12,14 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 public class TeacherDAO {
-    public ObservableList<TeachersEntity> getAll() {
+    public ObservableList<TeacherEntity> getAll() {
 
         Session session = HibernateUtil.getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery query = builder.createQuery(TeachersEntity.class);
+        CriteriaQuery query = builder.createQuery(TeacherEntity.class);
 
-        Root<TeachersEntity> root = query.from(TeachersEntity.class);
-        List<TeachersEntity> teachersList = session.createQuery(query.select(root.get("teacher"))).getResultList();
+        Root<TeacherEntity> root = query.from(TeacherEntity.class);
+        List<TeacherEntity> teachersList = session.createQuery(query.select(root.get("teacher"))).getResultList();
         System.out.println(teachersList.toString());
         session.close();
 
