@@ -24,6 +24,11 @@ import java.util.List;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
+/** "Music Master's Companion" JavaFX Controller class
+ *  @author Kristaps Sebris, Elena Bebrisa, Georgijs Kadolciks
+ *  @version 19th July 2022
+ */
+
 public class MusicMCController {
 
     @FXML
@@ -47,38 +52,50 @@ public class MusicMCController {
     @FXML
     public ListView accompanistList;
 
+    // Declares and instantiates TreeSet fields for automatic sorting and filtering distinct data
     private final TreeSet<String> studentSet = new TreeSet<>();
     private final TreeSet<String> gradeSet = new TreeSet<>();
     private final TreeSet<String> instrumentSet = new TreeSet<>();
     private final TreeSet<String> teacherSet = new TreeSet<>();
     private final TreeSet<String> accompanistSet = new TreeSet<>();
 
+    // Declares and instantiates ObservableList fields for storing ListView data
     private final ObservableList<String> studentObservList = FXCollections.observableArrayList();
     private final ObservableList<String> gradeObservList = FXCollections.observableArrayList();
     private final ObservableList<String> instrumentObservList = FXCollections.observableArrayList();
     private final ObservableList<String> teacherObservList = FXCollections.observableArrayList();
     private final ObservableList<String> accompanistObservList = FXCollections.observableArrayList();
 
+    // Declares and instantiates ObservableList fields for storing user's selected ListView data
     private final ObservableList<String> selectedStudentList = FXCollections.observableArrayList();
     private final ObservableList<String> selectedGradeList = FXCollections.observableArrayList();
     private final ObservableList<String> selectedInstrumentList = FXCollections.observableArrayList();
     private final ObservableList<String> selectedTeacherList = FXCollections.observableArrayList();
     private final ObservableList<String> selectedAccompanistList = FXCollections.observableArrayList();
 
+    // Declares a List for storing all data
     private List<StudentEntity> allStudents;
 
+    /** Initializes Controller
+     */
     public void initialize() {
+
+        // Opens a Hibernate session, loads all data and closes the session
         Session session = HibernateUtil.getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery query = builder.createQuery(StudentEntity.class);
         Root<StudentEntity> root = query.from(StudentEntity.class);
         allStudents = session.createQuery(query).getResultList();
         session.close();
+
+        // Associates ListViews with ObservableLists
         studentList.setItems(studentObservList);
         gradeList.setItems(gradeObservList);
         instrumentList.setItems(instrumentObservList);
         teacherList.setItems(teacherObservList);
         accompanistList.setItems(accompanistObservList);
+
+        // Sets multiple selection mode for the ListViews
         studentList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         gradeList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         instrumentList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -86,6 +103,8 @@ public class MusicMCController {
         accompanistList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
+    /** Shows Image for the GUI
+     */
     @FXML
     private void showImage() {
         Image image = new Image("Icon.jpg");
@@ -93,13 +112,19 @@ public class MusicMCController {
         myImageView.setCache(true);
     }
 
+    /** Processes user's request for selected data, or shows all data if no selection was made
+     */
     @FXML
     private void onRequestOrReloadAction(ActionEvent event) {
+
+        // Loads user's selections into ObservableList fields
         selectedStudentList.setAll(studentList.getSelectionModel().getSelectedItems());
         selectedGradeList.setAll(gradeList.getSelectionModel().getSelectedItems());
         selectedInstrumentList.setAll(instrumentList.getSelectionModel().getSelectedItems());
         selectedTeacherList.setAll(teacherList.getSelectionModel().getSelectedItems());
         selectedAccompanistList.setAll(accompanistList.getSelectionModel().getSelectedItems());
+
+        // Uses streams for filtering data based on user's selections, and stores results in another list
         List<StudentEntity> filteredStudents = allStudents.stream()
                 .filter(st -> selectedStudentList.isEmpty()
                         || selectedStudentList.contains(st.getStudent()))
@@ -112,11 +137,15 @@ public class MusicMCController {
                 .filter(st -> selectedAccompanistList.isEmpty()
                         || selectedAccompanistList.contains(st.getAccompanistId().getAccompanist()))
                 .collect(Collectors.toList());
+
+        // Resets TreeSets
         studentSet.clear();
         gradeSet.clear();
         instrumentSet.clear();
         teacherSet.clear();
         accompanistSet.clear();
+
+        // Makes filtered data ordered and distinct by adding them to TreeSets
         for (StudentEntity st : filteredStudents) {
             studentSet.add(st.getStudent());
             gradeSet.add(st.getGrade());
@@ -124,6 +153,8 @@ public class MusicMCController {
             teacherSet.add(st.getTeacherId().getTeacher());
             accompanistSet.add(st.getAccompanistId().getAccompanist());
         }
+
+        // Populates ObservableLists with filtered, ordered, and distinct data from the TreeSets
         studentObservList.setAll(studentSet);
         gradeObservList.setAll(gradeSet);
         instrumentObservList.setAll(instrumentSet);
@@ -131,6 +162,8 @@ public class MusicMCController {
         accompanistObservList.setAll(accompanistSet);
     }
 
+    /** Adds students' list or user's selections to the editable text area
+     */
     @FXML
     private void onListAddAction(ActionEvent event) {
         ObservableList<String> selectedList = FXCollections.observableArrayList();
@@ -145,6 +178,8 @@ public class MusicMCController {
                 textArea.appendText(string + "\n");
     }
 
+    /** Sends the contents of the text area to printer
+     */
     @FXML
     private void onPrintAction(ActionEvent event) {
         PrinterJob job = PrinterJob.createPrinterJob();

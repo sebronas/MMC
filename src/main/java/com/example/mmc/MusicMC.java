@@ -7,6 +7,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/** "Music Master's Companion" JavaFX Application class
+ *  @author Kristaps Sebris, Elena Bebrisa, Georgijs Kadolciks
+ *  @version 19th July 2022
+ */
+
 public class MusicMC extends Application {
 
     @Override

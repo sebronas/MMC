@@ -2,6 +2,11 @@ package com.example.mmc.Model;
 
 import javax.persistence.*;
 
+/** Entity class to hold students' data
+ *  @author Kristaps Sebris, Elena Bebrisa, Georgijs Kadolciks
+ *  @version 19th July 2022
+ */
+
 @Entity
 @Table(name = "students")
 public class StudentEntity {

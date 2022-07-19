@@ -3,6 +3,11 @@ package com.example.mmc.Model;
 import javax.persistence.*;
 import java.util.List;
 
+/** Entity class to hold instruments' data
+ *  @author Kristaps Sebris, Elena Bebrisa, Georgijs Kadolciks
+ *  @version 19th July 2022
+ */
+
 @Entity
 @Table(name = "instruments")
 public class InstrumentEntity {
