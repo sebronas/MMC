@@ -61,8 +61,10 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.6.5.Final</version>
+            <version>5.6.4.Final</version>
         </dependency>
+
+
 
     </dependencies>
 
@@ -86,7 +88,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.mmc/com.example.mmc.MusicMCStart</mainClass>
+                            <mainClass>com.example.mmc/com.example.mmc.MusicMC</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
