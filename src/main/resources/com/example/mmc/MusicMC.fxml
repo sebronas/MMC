@@ -52,7 +52,7 @@
             <Font name="Franklin Gothic Demi" size="15.0" />
         </font>
     </Text>
-    <Button layoutX="277.0" layoutY="200.0" onAction="#onListAddAction" prefHeight="36.0" prefWidth="55.0" text="ADD" textAlignment="CENTER" underline="true">
+    <Button layoutX="277.0" layoutY="248.0" onAction="#onListAddAction" prefHeight="36.0" prefWidth="55.0" text="ADD" textAlignment="CENTER" underline="true">
         <font>
             <Font size="13.0" />
         </font>
@@ -74,7 +74,7 @@
             <Image url="@../../../Icon.png" />
         </image>
     </ImageView>
-    <Button layoutX="277.0" layoutY="403.0" onAction="#onPrintAction" prefHeight="36.0" prefWidth="55.0" text="Print" textAlignment="CENTER" underline="true">
+    <Button layoutX="278.0" layoutY="409.0" onAction="#onPrintAction" prefHeight="36.0" prefWidth="55.0" text="Print" textAlignment="CENTER" underline="true">
         <font>
             <Font size="13.0" />
         </font>
