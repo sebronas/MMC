@@ -4,10 +4,10 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url">jdbc:mysql://localhost:3306/mmc_db</property>
+    <property name="connection.url">jdbc:mysql://musicmasterscompanion.mysql.database.azure.com:3306/mmc_db?useSSL=true&amp;requireSSL=false</property>
     <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-      <property name="connection.username">root</property>
-      <property name="connection.password">1234</property>
+      <property name="connection.username">admin_music@musicmasterscompanion</property>
+      <property name="connection.password">Master2022.</property>
 
     <mapping class="com.example.mmc.Model.AccompanistEntity"/>
     <mapping class="com.example.mmc.Model.InstrumentEntity"/>
