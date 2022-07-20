@@ -9,14 +9,18 @@ This is a filter that allows you to see who is the teacher of a particular stude
 This filter is not read-only (editing is possible) and adding information is done manually through the database connected to the filter. In later updates it is possible to develop the feature for users to add new students. <br />
 <br />
 Below you can see the flow chart that describes the logics of the interface: <br />
-<a href="https://ibb.co/r614LdY"><img src="https://i.ibb.co/4T5PD1z/flowchart.png" alt="flowchart" border="0"></a>
+<a href="https://ibb.co/d5nxcsC"><img src="https://i.ibb.co/ZMy7JR4/flowchart-2.png" alt="flowchart-2" border="0"></a>
 
-<br />
 Interface draft: <br />
 <br />
 
-<a href="https://ibb.co/5sDc20v"><img src="https://i.ibb.co/DwXKLJk/8-gui.jpg" alt="8-gui" border="0"></a>
+<a href="https://ibb.co/VDNpR9P"><img src="https://i.ibb.co/P4YzKjf/list.jpg" alt="list" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a>
 
+<br />
+
+Database relationship diagram: <br />
+<br />
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/sPv4jvq/mmc-db-ERD.png" alt="mmc-db-ERD" border="0"></a>
 <br />
 
 ## Getting Started
