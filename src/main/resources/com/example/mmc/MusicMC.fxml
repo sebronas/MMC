@@ -20,27 +20,33 @@
     <Button layoutX="349.0" layoutY="52.0" onAction="#onRequestOrReloadAction" prefHeight="27.0" prefWidth="124.0" text="Select / Reload" textAlignment="CENTER" underline="true">
         <font>
             <Font size="13.0" />
-        </font></Button>
+        </font>
+    </Button>
     <Text layoutX="656.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ACCOMPANISTS">
         <font>
             <Font name="Franklin Gothic Book" size="12.0" />
-        </font></Text>
+        </font>
+    </Text>
     <Text layoutX="527.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TEACHERS">
         <font>
             <Font name="Franklin Gothic Book" size="12.0" />
-        </font></Text>
+        </font>
+    </Text>
     <Text layoutX="658.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INSTRUMENTS">
         <font>
             <Font name="Franklin Gothic Book" size="12.0" />
-        </font></Text>
+        </font>
+    </Text>
     <Text layoutX="538.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GRADES">
         <font>
             <Font name="Franklin Gothic Book" size="12.0" />
-        </font></Text>
+        </font>
+    </Text>
     <Text layoutX="380.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STUDENTS">
         <font>
             <Font name="Franklin Gothic Book" size="12.0" />
-        </font></Text>
+        </font>
+    </Text>
     <ListView fx:id="studentList" layoutX="345.0" layoutY="118.0" prefHeight="391.0" prefWidth="132.0" />
     <ListView fx:id="gradeList" layoutX="488.0" layoutY="119.0" prefHeight="126.0" prefWidth="132.0" />
     <ListView fx:id="instrumentList" layoutX="631.0" layoutY="266.0" prefHeight="243.0" prefWidth="132.0" />
@@ -64,7 +70,7 @@
     </Text>
     <Line endX="-70.0" endY="1.0" layoutX="574.0" layoutY="65.0" startX="-100.0" stroke="#ab9f9f" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dee1e4" height="36.0" layoutX="504.0" layoutY="48.0" opacity="0.21" stroke="BLACK" strokeType="INSIDE" width="255.0" />
-    <Text layoutX="20.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*To clear selections, press the button &quot;Select / Clear&quot; one more time. To put it on the results list, press the button &quot;ADD&quot;." textAlignment="CENTER" wrappingWidth="610.0">
+    <Text layoutX="20.0" layoutY="530.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*To clear selections, press the button &quot;Select / Reload&quot; one more time. To put it on the results list, press the button &quot;ADD&quot;." textAlignment="CENTER" wrappingWidth="627.0">
         <font>
             <Font name="Franklin Gothic Book" size="12.0" />
         </font>
