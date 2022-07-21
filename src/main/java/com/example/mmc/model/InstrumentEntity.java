@@ -1,4 +1,4 @@
-package com.example.mmc.Model;
+package com.example.mmc.model;
 
 import javax.persistence.*;
 import java.util.List;

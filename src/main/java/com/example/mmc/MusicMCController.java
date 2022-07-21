@@ -1,6 +1,6 @@
 package com.example.mmc;
 
-import com.example.mmc.DAO.StudentDAO;
+import com.example.mmc.dao.StudentDAO;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

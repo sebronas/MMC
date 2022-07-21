@@ -12,6 +12,6 @@ module com.example.mmc {
     requires java.sql;
 
     opens com.example.mmc to javafx.fxml;
-    opens com.example.mmc.Model to org.hibernate.orm.core;
+    opens com.example.mmc.model to org.hibernate.orm.core;
     exports com.example.mmc;
 }

@@ -1,7 +1,7 @@
-package com.example.mmc.DAO;
+package com.example.mmc.dao;
 
-import com.example.mmc.Model.StudentEntity;
-import com.example.mmc.Utility.HibernateUtil;
+import com.example.mmc.model.StudentEntity;
+import com.example.mmc.utility.HibernateUtil;
 
 import java.util.List;
 import java.util.TreeSet;

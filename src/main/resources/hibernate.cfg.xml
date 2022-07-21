@@ -10,13 +10,10 @@
     <property name="connection.password">Master2022.</property>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
-    <mapping class="com.example.mmc.Model.AccompanistEntity"/>
-    <mapping class="com.example.mmc.Model.InstrumentEntity"/>
-    <mapping class="com.example.mmc.Model.StudentEntity"/>
-    <mapping class="com.example.mmc.Model.TeacherEntity"/>
+    <mapping class="com.example.mmc.model.AccompanistEntity"/>
+    <mapping class="com.example.mmc.model.InstrumentEntity"/>
+    <mapping class="com.example.mmc.model.StudentEntity"/>
+    <mapping class="com.example.mmc.model.TeacherEntity"/>
 
-
-    <!-- DB schema will be updated if needed -->
-    <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
   </session-factory>
 </hibernate-configuration>
