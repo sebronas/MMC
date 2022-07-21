@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="573.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mmc.MusicMCController">
+<AnchorPane prefHeight="573.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mmc.controller.MusicMCController">
     <Line endX="425.0" endY="187.0" layoutX="386.0" layoutY="181.0" startX="-386.0" startY="187.0" stroke="#7aaed0" strokeWidth="8.0" />
     <Line endX="425.0" endY="187.0" layoutX="376.0" layoutY="171.0" startX="-378.0" startY="187.0" stroke="#7aaed0" strokeWidth="8.0" />
     <Line endX="425.0" endY="187.0" layoutX="366.0" layoutY="161.0" startX="-378.0" startY="187.0" stroke="#7aaed0" strokeWidth="8.0" />

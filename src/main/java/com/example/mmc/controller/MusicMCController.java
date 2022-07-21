@@ -1,4 +1,4 @@
-package com.example.mmc;
+package com.example.mmc.controller;
 
 import com.example.mmc.dao.StudentDAO;
 

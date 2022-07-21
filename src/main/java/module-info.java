@@ -1,10 +1,8 @@
 module com.example.mmc {
     requires javafx.controls;
     requires javafx.fxml;
-    requires javafx.web;
 
     requires org.controlsfx.controls;
-    requires org.kordamp.bootstrapfx.core;
     requires org.hibernate.orm.core;
     requires java.naming;
     requires java.persistence;
@@ -14,4 +12,6 @@ module com.example.mmc {
     opens com.example.mmc to javafx.fxml;
     opens com.example.mmc.model to org.hibernate.orm.core;
     exports com.example.mmc;
+    exports com.example.mmc.controller;
+    opens com.example.mmc.controller to javafx.fxml;
 }
