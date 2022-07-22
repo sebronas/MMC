@@ -32,7 +32,8 @@ To develop this app we used: <br />
 •	Java OpenJDK 11 <br /> 
 •	MySQL Workbench <br /> 
 •	JavaFX - SceneBuilder <br /> 
-•	Hibernate Query Language (HQL)
+•	Hibernate
+•	Azure DB
 
 ### **Executing program** :electric_plug:
 
@@ -40,6 +41,7 @@ To develop this app we used: <br />
 •	Type 'javac MMC.java and press enter to compile your code. The command prompt will take you to the next line; <br /> 
 •	Now, type 'java MMC.java' to run your program; <br />
 •	You will be able to see the result printed on the window.
+•	The DB is accessible till the end of August 2022.
 
 ## Help :e-mail:
 Please contact us if you have any questions
